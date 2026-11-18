@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="472" viewBox="0 0 900 472" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
+<title>Three policies for a work started again under the same key</title>
+<desc>Starts at three moments under one key. Latest cancels the running work and runs the newest. KeepExisting ignores new starts while a work runs. Parallel runs every start, and each one answers with a signal.</desc>
+<defs><marker id="m0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#818b98"/></marker></defs>
+<rect width="900" height="472" rx="12" fill="#ffffff"/>
+<path d="M210 24 L222 24 L216 33Z" fill="#1f2328"/>
+<text x="228" y="33" font-size="13" fill="#59636e">start</text>
+<rect x="280" y="22" width="28" height="12" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<text x="316" y="33" font-size="13" fill="#59636e">work runs</text>
+<rect x="404" y="22" width="28" height="12" rx="3" fill="#818b98" fill-opacity="0.25" stroke="#818b98" stroke-width="1" stroke-dasharray="3 2"/>
+<path d="M427 23 L437 33 M437 23 L427 33" stroke="#cf222e" stroke-width="2" stroke-linecap="round"/>
+<text x="446" y="33" font-size="13" fill="#59636e">cancelled</text>
+<circle cx="534" cy="28" r="6" fill="#1a7f37"/>
+<text x="546" y="33" font-size="13" fill="#59636e">signal</text>
+<path d="M608 24 L620 24 L614 33Z" fill="none" stroke="#59636e" stroke-width="1.3"/>
+<text x="626" y="33" font-size="13" fill="#59636e">ignored</text>
+<rect x="20" y="70" width="860" height="102" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="36" y="100" font-size="16" fill="#1f2328" font-weight="700">Latest</text>
+<text x="36" y="122" font-size="13" fill="#59636e">A new start cancels the</text>
+<text x="36" y="140" font-size="13" fill="#59636e">running work.</text>
+<path d="M204 84 L216 84 L210 93Z" fill="#1f2328"/>
+<rect x="210" y="102" width="132" height="14" rx="3" fill="#818b98" fill-opacity="0.25" stroke="#818b98" stroke-width="1" stroke-dasharray="3 2"/>
+<path d="M337 104 L347 114 M347 104 L337 114" stroke="#cf222e" stroke-width="2" stroke-linecap="round"/>
+<path d="M336 84 L348 84 L342 93Z" fill="#1f2328"/>
+<rect x="342" y="102" width="132" height="14" rx="3" fill="#818b98" fill-opacity="0.25" stroke="#818b98" stroke-width="1" stroke-dasharray="3 2"/>
+<path d="M469 104 L479 114 M479 104 L469 114" stroke="#cf222e" stroke-width="2" stroke-linecap="round"/>
+<path d="M468 84 L480 84 L474 93Z" fill="#1f2328"/>
+<rect x="474" y="102" width="231" height="14" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<circle cx="715.0" cy="109" r="6" fill="#1a7f37"/>
+<rect x="20" y="182" width="860" height="102" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="36" y="212" font-size="16" fill="#1f2328" font-weight="700">KeepExisting</text>
+<text x="36" y="234" font-size="13" fill="#59636e">A start is ignored while</text>
+<text x="36" y="252" font-size="13" fill="#59636e">the work runs.</text>
+<path d="M204 196 L216 196 L210 205Z" fill="#1f2328"/>
+<rect x="210" y="214" width="396" height="14" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<circle cx="616" cy="221" r="6" fill="#1a7f37"/>
+<path d="M336 196 L348 196 L342 205Z" fill="none" stroke="#59636e" stroke-width="1.3"/>
+<path d="M468 196 L480 196 L474 205Z" fill="none" stroke="#59636e" stroke-width="1.3"/>
+<rect x="20" y="294" width="860" height="118" rx="8" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="36" y="324" font-size="16" fill="#1f2328" font-weight="700">Parallel</text>
+<text x="36" y="346" font-size="13" fill="#59636e">Every start runs beside</text>
+<text x="36" y="364" font-size="13" fill="#59636e">the others.</text>
+<path d="M204 308 L216 308 L210 317Z" fill="#1f2328"/>
+<rect x="210" y="326" width="330" height="14" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<circle cx="550" cy="333" r="6" fill="#1a7f37"/>
+<path d="M336 308 L348 308 L342 317Z" fill="#1f2328"/>
+<rect x="342" y="350" width="297" height="14" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<circle cx="649.0" cy="357" r="6" fill="#1a7f37"/>
+<path d="M468 308 L480 308 L474 317Z" fill="#1f2328"/>
+<rect x="474" y="374" width="297" height="14" rx="3" fill="#1a7f37" fill-opacity="0.35" stroke="#1a7f37" stroke-width="1"/>
+<circle cx="781.0" cy="381" r="6" fill="#1a7f37"/>
+<path d="M210 426 L870 426" fill="none" stroke="#818b98" stroke-width="1.2" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="870" y="448" font-size="13" fill="#59636e" text-anchor="end">time</text>
+</svg>

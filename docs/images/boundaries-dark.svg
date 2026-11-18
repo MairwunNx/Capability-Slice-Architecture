@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="576" viewBox="0 0 980 576" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
+<title>Boundaries: ports, wiring, and how screens talk</title>
+<desc>Top: a capability calls its ports, plain functions. The wiring builds the ports from real code: a repository, a use case, a platform API. Middle: on one screen, the timer capability sends a signal, and the runtime hands it to the results and banner capabilities. The timer never imports or calls them. Bottom: screens share no runtime. A work on screen A publishes to a shared source, and screen B reads it through a port and turns it into a signal.</desc>
+<defs><marker id="m0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#6e7681"/></marker><marker id="m1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#3fb950"/></marker><marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#f85149"/></marker></defs>
+<rect width="980" height="576" rx="12" fill="#0d1117"/>
+<text x="20" y="34" font-size="16" fill="#e6edf3" font-weight="700">Ports and wiring</text>
+<text x="163.92" y="34" font-size="13" fill="#9198a1">the capability sees functions, the wiring plugs real code into them</text>
+<rect x="20" y="64" width="200" height="64" rx="10" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="120" y="93" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Capability</text>
+<text x="120" y="113" font-size="13" fill="#9198a1" text-anchor="middle">knows only its ports</text>
+<rect x="280" y="64" width="190" height="64" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="375" y="93" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Ports</text>
+<text x="375" y="113" font-size="13" fill="#9198a1" text-anchor="middle">plain functions</text>
+<rect x="530" y="64" width="190" height="64" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="625" y="93" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Wiring</text>
+<text x="625" y="113" font-size="13" fill="#9198a1" text-anchor="middle">builds the ports</text>
+<rect x="780" y="64" width="180" height="64" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="870" y="93" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Real code</text>
+<text x="870" y="113" font-size="13" fill="#9198a1" text-anchor="middle">repository, use case</text>
+<path d="M220 96 L278 96" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="249" y="88" font-size="12" fill="#9198a1" text-anchor="middle">calls</text>
+<path d="M530 96 L472 96" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="501" y="88" font-size="12" fill="#9198a1" text-anchor="middle">builds</text>
+<path d="M720 96 L778 96" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="749" y="88" font-size="12" fill="#9198a1" text-anchor="middle">uses</text>
+<text x="20" y="196" font-size="16" fill="#e6edf3" font-weight="700">One screen</text>
+<text x="123.96" y="196" font-size="13" fill="#9198a1">neighbours talk through the runtime, never directly</text>
+<rect x="20" y="270" width="200" height="60" rx="10" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="120" y="297" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="middle">timer</text>
+<text x="120" y="317" font-size="13" fill="#9198a1" text-anchor="middle">deadline reached</text>
+<rect x="390" y="270" width="200" height="60" rx="10" fill="#5b52e0" stroke="#5b52e0" stroke-width="1.5"/>
+<text x="490" y="297" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">Runtime</text>
+<text x="490" y="317" font-size="13" fill="#ffffff" text-anchor="middle" fill-opacity="0.85">queue of facts</text>
+<rect x="760" y="230" width="200" height="52" rx="10" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="860" y="253" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="middle">results</text>
+<text x="860" y="273" font-size="13" fill="#9198a1" text-anchor="middle">drops the item</text>
+<rect x="760" y="318" width="200" height="52" rx="10" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="860" y="341" font-size="15" fill="#e6edf3" font-weight="700" text-anchor="middle">banner</text>
+<text x="860" y="361" font-size="13" fill="#9198a1" text-anchor="middle">shows the offer</text>
+<path d="M220 300 L388 300" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m1)"/>
+<text x="304" y="292" font-size="13" fill="#3fb950" text-anchor="middle">Signal</text>
+<path d="M590 292 L675 292 L675 256 L758 256" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M590 308 L675 308 L675 344 L758 344" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M120 270 L120 218 L860 218 L860 228" fill="none" stroke="#f85149" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#m2)"/>
+<path d="M483 211 L497 225 M497 211 L483 225" stroke="#f85149" stroke-width="2" stroke-linecap="round"/>
+<text x="504" y="211" font-size="13" fill="#f85149">never imports or calls</text>
+<text x="20" y="394" font-size="16" fill="#e6edf3" font-weight="700">Between screens</text>
+<text x="171.48" y="394" font-size="13" fill="#9198a1">a shared source in DI, read through a port</text>
+<rect x="20" y="424" width="220" height="72" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="130" y="457" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Screen A</text>
+<text x="130" y="477" font-size="13" fill="#9198a1" text-anchor="middle">a work publishes</text>
+<rect x="380" y="424" width="220" height="72" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="490" y="457" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Shared source</text>
+<text x="490" y="477" font-size="13" fill="#9198a1" text-anchor="middle">an event or a state</text>
+<rect x="740" y="424" width="220" height="72" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text x="850" y="457" font-size="16" fill="#e6edf3" font-weight="700" text-anchor="middle">Screen B</text>
+<text x="850" y="477" font-size="13" fill="#9198a1" text-anchor="middle">a stream → Signal</text>
+<path d="M240 460 L378 460" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="309" y="452" font-size="12" fill="#9198a1" text-anchor="middle">publish</text>
+<path d="M600 460 L738 460" fill="none" stroke="#6e7681" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<text x="669" y="452" font-size="12" fill="#9198a1" text-anchor="middle">port</text>
+<text x="20" y="530" font-size="13" fill="#9198a1">Each screen keeps its own runtime and queue, so the order between screens is not guaranteed.</text>
+<text x="20" y="552" font-size="13" fill="#9198a1">Keep the flow one way: one publisher per event. A state reaches a screen opened later, an event does not.</text>
+</svg>

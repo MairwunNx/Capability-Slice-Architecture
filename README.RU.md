@@ -6,7 +6,7 @@
   <img alt="Languages: English, Russian" src="https://img.shields.io/badge/languages-en%20%7C%20ru-blue">
 </p>
 
-🍰 **Capability Slice Architecture** (CSA) — архитектура клиентских приложений с декларативным UI: Compose, Compose Multiplatform, SwiftUI, Avalonia.FuncUI. Вы режете экран на маленькие capability, по одной на пользовательский сценарий, и каждая владеет своим slice состояния.
+🍰 **Capability Slice Architecture** (CSA) — архитектура клиентских приложений с декларативным UI: Compose, Compose Multiplatform, SwiftUI, Avalonia.FuncUI. Вы делите экран на маленькие capability, по одной на пользовательский сценарий, и каждая владеет своим slice состояния.
 
 [English version](README.md)
 
@@ -21,7 +21,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-split-dark.svg">
-  <img alt="Экран до и после нарезки: один класс, который владеет поиском, таймером, списком, лайками, формой, навигацией и аналитикой, превращается в пять capability, у каждой свой slice" src="docs/images/screen-split-light.svg">
+  <img alt="Экран до и после разделения: один класс, который владеет поиском, таймером, списком, лайками, формой, навигацией и аналитикой, превращается в пять capability, у каждой свой slice" src="docs/images/screen-split-light.svg">
 </picture>
 
 ## Что вы получаете
@@ -37,28 +37,42 @@
 
 | # | Правило | Что это значит |
 |---|---|---|
-| 1 | 🧩 **Режьте по сценарию** | Capability владеет пользовательским сценарием: лайком, поиском, таймером. Никогда не блоком вёрстки. |
-| 2 | 🧠 **Хост собирает, а не думает** | Точка входа UI собирает slice, отправляет интенты и исполняет эффекты. Продуктовых условий в ней нет. |
-| 3 | 🚌 **Runtime — единственная шина** | Capability не импортирует другую capability и не читает её slice. Они общаются через факты. |
-| 4 | 🚪 **Эффекты — единственная нечистота** | Роутер и снекбар живут на краю и никогда не попадают в логику. |
-| 5 | ✂️ **Decider остаётся маленьким** | Примерно 150 строк или 12 фактов. Больше — делите capability. |
+| 1 | **Разделяйте по сценариям** | Capability владеет пользовательским сценарием: лайком, поиском, таймером. Никогда не блоком вёрстки. |
+| 2 | **Хост собирает, а не думает** | Точка входа UI собирает slice, отправляет интенты и исполняет эффекты. Продуктовых условий в ней нет. |
+| 3 | **Runtime — единственная шина** | Capability не импортирует другую capability и не читает её slice. Они общаются через факты. |
+| 4 | **Побочные эффекты живут на краю** | Логика описывает навигацию, снекбар и аналитику как эффекты, а исполняет их хост. Сами роутер и снекбар в логику не попадают. |
+| 5 | **Decider остаётся маленьким** | Примерно 150 строк или 12 фактов. Больше — делите capability. |
 
 ## Одна capability, один тест
 
 Лайк появляется сразу, сохраняется в фоне и откатывается, если сохранить не удалось. Пример написан на [Capsa](https://github.com/MairwunNx/Capsa), реализации CSA на Kotlin.
 
+`LikeSlice.kt` — состояние сценария:
+
 ```kotlin
 data class LikeSlice(val liked: Boolean = false, val likes: Int = 0)
+```
 
+`LikeFacts.kt` — что приходит в capability и что уходит из неё:
+
+```kotlin
 data object LikeClicked : Intent
 data class LikeSaved(val likes: Int) : Signal
 data object LikeFailed : Signal
 data object ShowLikeError : Effect
+```
 
+`LikeApi.kt` — порт, через который работа ходит в сеть:
+
+```kotlin
 fun interface LikeApi {
     suspend fun setLiked(liked: Boolean): Int
 }
+```
 
+`Likes.kt` — сама capability:
+
+```kotlin
 private val save = WorkKey("save")
 
 fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
@@ -76,7 +90,9 @@ fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
 }
 ```
 
-Capability сама не ходит в сеть. Она возвращает работу, а runtime запускает её и превращает ответ или ошибку в сигнал. Поэтому тест гоняет настоящий runtime в виртуальном времени с фейковым API, без устройства и без библиотеки моков:
+Capability сама не ходит в сеть. Она возвращает работу, а runtime запускает её и превращает ответ или ошибку в сигнал. Поэтому тест гоняет настоящий runtime в виртуальном времени с фейковым API, без устройства и без библиотеки моков.
+
+`LikesTest.kt`:
 
 ```kotlin
 @Test
@@ -104,13 +120,13 @@ fun `a failed save rolls the like back`() = runTest {
 
 ## Откуда идея
 
-CSA выросла из [Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture). FAA режет бэкенд по доменам и делает каждое действие явным. CSA переносит ту же идею в клиентские приложения, где состояние живёт на экране, а UI перерисовывается из него.
+CSA выросла из [Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture), моей архитектуры для бэкенда. FAA делит бэкенд по доменам и делает каждое действие явным. CSA переносит ту же идею в клиентские приложения, где состояние живёт на экране, а UI перерисовывается из него.
 
 ## Документация
 
 Спецификация целиком — в [вики](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki) (на английском):
 
-- [Why](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Why): чем плох один большой view model и что меняет CSA.
+- [Why](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Why): чем плоха одна большая вью-модель и что меняет CSA.
 - [Vocabulary](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Vocabulary) и [Five rules](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Five-rules): каждый термин и каждое правило с примером нарушения и исправления.
 - [Data flow](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Data-flow), [Work as data](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Work-as-data) и [Effects](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Effects): один проход факта, ключи и политики, одна дверь наружу.
 - [Projections](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Projections), [Boundaries](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Boundaries) и [Structure](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Structure): от slice к UI-модели, порты и проводка, пакеты экрана.
@@ -120,6 +136,6 @@ CSA выросла из [Feature-Action Architecture](https://github.com/Mairwun
 ## Связанные проекты
 
 - **[Capsa](https://github.com/MairwunNx/Capsa)** — реализация CSA на Kotlin Multiplatform.
-- **[Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture)** — то же чутьё для бэкенда: режем по доменам, одна функция на одну работу.
+- **[Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture)** — моя архитектура для бэкенда, то же чутьё: делим по доменам, одна функция на одну работу.
 
 > 🫡 Made by Pavel Erokhin (Павел Ерохин), aka mairwunnx.

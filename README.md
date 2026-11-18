@@ -37,28 +37,42 @@ A screen stops being one big class. Each scenario becomes its own capability wit
 
 | # | Rule | What it means |
 |---|---|---|
-| 1 | 🧩 **Slice by scenario** | A capability owns a user scenario: a like, a search, a timer. Never a layout block. |
-| 2 | 🧠 **The host assembles, it doesn’t think** | The UI entry point collects slices, sends intents, and performs effects. It holds no product conditions. |
-| 3 | 🚌 **The runtime is the only bus** | A capability never imports another one or reads its slice. They talk through facts. |
-| 4 | 🚪 **Effects are the only impurity** | The router and the snackbar live at the edge, never in the logic. |
-| 5 | ✂️ **Keep the decider small** | About 150 lines or 12 facts. Past that, split the capability. |
+| 1 | **Slice by scenario** | A capability owns a user scenario: a like, a search, a timer. Never a layout block. |
+| 2 | **The host assembles, it doesn’t think** | The UI entry point collects slices, sends intents, and performs effects. It holds no product conditions. |
+| 3 | **The runtime is the only bus** | A capability never imports another one or reads its slice. They talk through facts. |
+| 4 | **Side effects live at the edge** | The logic describes navigation, snackbars, and analytics as effects, and the host performs them. The router and the snackbar themselves never get into the logic. |
+| 5 | **Keep the decider small** | About 150 lines or 12 facts. Past that, split the capability. |
 
 ## One capability, one test
 
 A like shows at once, saves in the background, and rolls back when the save fails. The example uses [Capsa](https://github.com/MairwunNx/Capsa), the Kotlin implementation of CSA.
 
+`LikeSlice.kt` – the state of the scenario:
+
 ```kotlin
 data class LikeSlice(val liked: Boolean = false, val likes: Int = 0)
+```
 
+`LikeFacts.kt` – what comes into the capability and what leaves it:
+
+```kotlin
 data object LikeClicked : Intent
 data class LikeSaved(val likes: Int) : Signal
 data object LikeFailed : Signal
 data object ShowLikeError : Effect
+```
 
+`LikeApi.kt` – the port the work calls the network through:
+
+```kotlin
 fun interface LikeApi {
     suspend fun setLiked(liked: Boolean): Int
 }
+```
 
+`Likes.kt` – the capability itself:
+
+```kotlin
 private val save = WorkKey("save")
 
 fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
@@ -76,7 +90,9 @@ fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
 }
 ```
 
-The capability never calls the network itself. It returns a work, and the runtime runs it and turns the answer or the error into a signal. So the test drives a real runtime on virtual time with a fake API, without a device or a mock framework:
+The capability never calls the network itself. It returns a work, and the runtime runs it and turns the answer or the error into a signal. So the test drives a real runtime on virtual time with a fake API, without a device or a mock framework.
+
+`LikesTest.kt`:
 
 ```kotlin
 @Test
@@ -104,7 +120,7 @@ Every implementation gives the same guarantees: one queue of facts, stale signal
 
 ## Inspired by
 
-CSA grows from [Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture). FAA slices a backend by domain and makes every action explicit. CSA brings the same idea to client apps, where state lives on the screen and the UI redraws from it.
+CSA grows from [Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture), my architecture for backends. FAA slices a backend by domain and makes every action explicit. CSA brings the same idea to client apps, where state lives on the screen and the UI redraws from it.
 
 ## Documentation
 
@@ -120,6 +136,6 @@ The [wiki](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki) hold
 ## Related projects
 
 - **[Capsa](https://github.com/MairwunNx/Capsa)** – the Kotlin Multiplatform implementation of CSA.
-- **[Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture)** – the same instinct for backends: slice by domain, one function per job.
+- **[Feature-Action Architecture](https://github.com/MairwunNx/Feature-Action-Architecture)** – my architecture for backends, with the same instinct: slice by domain, one function per job.
 
 > 🫡 Made by Pavel Erokhin (Павел Ерохин), aka mairwunnx.

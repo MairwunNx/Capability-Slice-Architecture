@@ -27,7 +27,7 @@ CSA draws on Feature-Action Architecture (https://github.com/MairwunNx/Feature-A
 1. **Slice by scenario**, never by layout block.
 2. **The host assembles, it doesn’t think**: no product conditions in the UI entry point.
 3. **The runtime is the only bus**: a capability never imports or calls another one.
-4. **Effects are the only impurity**: router and snackbars live at the edge, never in the logic.
+4. **Side effects live at the edge**: the logic describes them as effects, the host performs them. Router and snackbars never get into the logic.
 5. **Keep the decider small**: about 150 lines or 12 facts. Past that, split the capability.
 
 ## How to write here

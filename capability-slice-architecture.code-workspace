@@ -1,0 +1,14 @@
+{
+  "folders": [
+    { "name": "Capability Slice Architecture", "path": "." }
+  ],
+  "extensions": {
+    "recommendations": [
+      "editorconfig.editorconfig",
+      "davidanson.vscode-markdownlint",
+      "bierner.markdown-mermaid",
+      "ms-python.python",
+      "redhat.vscode-yaml"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+# IntelliJ IDEA: only the shared part goes to git
+.idea/*
+!.idea/.gitignore
+!.idea/codeStyles/
+!.idea/vcs.xml
+*.iml
+*.ipr
+*.iws
+out/
+
+# Python helpers in tools/
+__pycache__/
+.venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+[Dd]esktop.ini

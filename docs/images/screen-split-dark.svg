@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
+<title>One screen before and after slicing it into capabilities</title>
+<desc>Before: one class owns the whole screen, so the search, the timer, the list, the likes, the form, navigation, and analytics share one piece of code. After: five capabilities, search, timer, results, like, and form, each with its own slice. The like capability covers the like button of every card.</desc>
+<rect width="1000" height="520" rx="12" fill="#0d1117"/>
+<text x="20" y="34" font-size="16" fill="#e6edf3" font-weight="700">Before</text>
+<text x="83.08" y="34" font-size="14" fill="#9198a1">one class owns the screen</text>
+<rect x="20" y="60" width="190" height="400" rx="22" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<rect x="90" y="70" width="50" height="5" rx="2.5" fill="#30363d"/>
+<rect x="34" y="86" width="162" height="28" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="48" y="104" font-size="12" fill="#9198a1">Search</text>
+<rect x="34" y="124" width="162" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="44" y="143" font-size="12" fill="#9198a1">Offer ends in 04:59</text>
+<rect x="34" y="164" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="44" y="176" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="44" y="192" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M170 186 C170 182 176 182 176 186 C176 182 182 182 182 186 C182 190 177 192 176 194 C175 192 170 190 170 186Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="34" y="222" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="44" y="234" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="44" y="250" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M170 244 C170 240 176 240 176 244 C176 240 182 240 182 244 C182 248 177 250 176 252 C175 250 170 248 170 244Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="34" y="280" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="44" y="292" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="44" y="308" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M170 302 C170 298 176 298 176 302 C176 298 182 298 182 302 C182 306 177 308 176 310 C175 308 170 306 170 302Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="34" y="350" width="110" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="44" y="369" font-size="12" fill="#9198a1">Comment</text>
+<rect x="152" y="350" width="44" height="30" rx="6" fill="#30363d"/>
+<text x="174" y="369" font-size="12" fill="#e6edf3" text-anchor="middle">Send</text>
+<path d="M196 100 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M196 139 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M196 247 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M196 365 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M183 189 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M183 247 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<path d="M183 305 L290 245" fill="none" stroke="#6e7681" stroke-width="1" stroke-linejoin="round"/>
+<rect x="290" y="110" width="190" height="270" rx="10" fill="#161b22" stroke="#f85149" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="308" y="142" font-size="16" fill="#e6edf3" font-weight="700">Screen logic</text>
+<text x="308" y="172" font-size="13" fill="#9198a1">loads the list</text>
+<text x="308" y="199" font-size="13" fill="#9198a1">searches</text>
+<text x="308" y="226" font-size="13" fill="#9198a1">likes an item</text>
+<text x="308" y="253" font-size="13" fill="#9198a1">counts down</text>
+<text x="308" y="280" font-size="13" fill="#9198a1">checks the form</text>
+<text x="308" y="307" font-size="13" fill="#9198a1">navigates</text>
+<text x="308" y="334" font-size="13" fill="#9198a1">sends analytics</text>
+<text x="20" y="498" font-size="13" fill="#9198a1">Every change touches code of another scenario.</text>
+<path d="M500 24 L500 496" stroke="#30363d" stroke-width="1"/>
+<text x="520" y="34" font-size="16" fill="#e6edf3" font-weight="700">After</text>
+<text x="567.96" y="34" font-size="14" fill="#9198a1">a capability per scenario</text>
+<rect x="520" y="60" width="190" height="400" rx="22" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<rect x="590" y="70" width="50" height="5" rx="2.5" fill="#30363d"/>
+<rect x="534" y="86" width="162" height="28" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="548" y="104" font-size="12" fill="#9198a1">Search</text>
+<rect x="534" y="124" width="162" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="544" y="143" font-size="12" fill="#9198a1">Offer ends in 04:59</text>
+<rect x="534" y="164" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="544" y="176" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="544" y="192" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M670 186 C670 182 676 182 676 186 C676 182 682 182 682 186 C682 190 677 192 676 194 C675 192 670 190 670 186Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="534" y="222" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="544" y="234" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="544" y="250" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M670 244 C670 240 676 240 676 244 C676 240 682 240 682 244 C682 248 677 250 676 252 C675 250 670 248 670 244Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="534" y="280" width="162" height="50" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="544" y="292" width="96" height="8" rx="4" fill="#30363d"/>
+<rect x="544" y="308" width="64" height="8" rx="4" fill="#30363d"/>
+<path d="M670 302 C670 298 676 298 676 302 C676 298 682 298 682 302 C682 306 677 308 676 310 C675 308 670 306 670 302Z" fill="none" stroke="#9198a1" stroke-width="1.4"/>
+<rect x="534" y="350" width="110" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<text x="544" y="369" font-size="12" fill="#9198a1">Comment</text>
+<rect x="652" y="350" width="44" height="30" rx="6" fill="#30363d"/>
+<text x="674" y="369" font-size="12" fill="#e6edf3" text-anchor="middle">Send</text>
+<rect x="531" y="83" width="168" height="34" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="531" y="121" width="168" height="36" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="531" y="161" width="168" height="172" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="662" y="174" width="28" height="30" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="662" y="232" width="28" height="30" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="662" y="290" width="28" height="30" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="531" y="347" width="168" height="36" rx="8" fill="none" stroke="#ab7df8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="782" y="77" width="200" height="46" rx="8" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="796" y="97" font-size="14" fill="#ab7df8" font-weight="700">search</text>
+<text x="796" y="114" font-size="12" fill="#9198a1">slice: query</text>
+<path d="M699 100 L782 100" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<rect x="782" y="137" width="200" height="46" rx="8" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="796" y="157" font-size="14" fill="#ab7df8" font-weight="700">timer</text>
+<text x="796" y="174" font-size="12" fill="#9198a1">slice: seconds left</text>
+<path d="M699 139 L782 160" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<rect x="782" y="197" width="200" height="46" rx="8" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="796" y="217" font-size="14" fill="#ab7df8" font-weight="700">results</text>
+<text x="796" y="234" font-size="12" fill="#9198a1">slice: items, loading</text>
+<path d="M699 182 L782 220" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<rect x="782" y="267" width="200" height="46" rx="8" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="796" y="287" font-size="14" fill="#ab7df8" font-weight="700">like</text>
+<text x="796" y="304" font-size="12" fill="#9198a1">slice: liked items</text>
+<path d="M690 189 L782 290" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<path d="M690 247 L782 290" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<path d="M690 305 L782 290" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<rect x="782" y="342" width="200" height="46" rx="8" fill="#ab7df8" fill-opacity="0.14" stroke="#ab7df8" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="796" y="362" font-size="14" fill="#ab7df8" font-weight="700">form</text>
+<text x="796" y="379" font-size="12" fill="#9198a1">slice: text, sending</text>
+<path d="M699 365 L782 365" fill="none" stroke="#ab7df8" stroke-width="1" stroke-linejoin="round"/>
+<text x="520" y="498" font-size="13" fill="#9198a1">Each scenario owns its slice. The like covers every card.</text>
+</svg>

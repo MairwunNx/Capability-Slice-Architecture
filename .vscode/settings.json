@@ -1,0 +1,25 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [186],
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.venv": true
+  },
+  "search.exclude": {
+    "**/__pycache__": true,
+    "**/.venv": true
+  },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.wordWrap": "on"
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "[kotlin]": {
+    "editor.tabSize": 4
+  }
+}

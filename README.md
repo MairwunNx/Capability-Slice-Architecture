@@ -2,7 +2,6 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/MairwunNx/Capability-Slice-Architecture"></a>
-  <img alt="Spec v0.99 preview" src="https://img.shields.io/badge/spec-v0.99%20preview-orange">
   <a href="https://github.com/MairwunNx/Capsa"><img alt="Implementation: Capsa" src="https://img.shields.io/badge/implementation-Capsa-7F52FF?logo=kotlin&logoColor=white"></a>
   <img alt="Languages: English, Russian" src="https://img.shields.io/badge/languages-en%20%7C%20ru-blue">
 </p>
@@ -24,9 +23,6 @@ A screen stops being one big class. Each scenario becomes its own capability wit
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/screen-split-dark.svg">
   <img alt="One screen before and after slicing: one class that owns search, timer, list, likes, form, navigation, and analytics becomes five capabilities, each with its own slice" src="docs/images/screen-split-light.svg">
 </picture>
-
-> [!NOTE]
-> CSA 0.99 is a preview of the specification. Names and rules may still change before 1.0, and your feedback shapes them.
 
 ## What you get
 

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="490" viewBox="0 0 980 490" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
+<title>How a fact flows through a screen, animated</title>
+<desc>1: the UI sends an intent to the runtime, which keeps a queue of facts. 2: the runtime hands the fact to a capability, a function of the slice and the fact. 3: the capability returns a decision. 4: the runtime starts a work, a request or a subscription, and the work answers with a signal. 5: the runtime stores the new slice, the projection turns it into a UI model, and the UI shows it. 6: the runtime sends an effect to the host, which navigates or reports analytics.</desc>
+<style>.token{animation:fact 16.27s linear infinite;opacity:0}@keyframes fact{0.000%{transform:translate(204px,228px);opacity:0;fill:#0969da}0.737%{transform:translate(204px,228px);opacity:1;fill:#0969da}6.774%{transform:translate(371px,228px);opacity:1;fill:#0969da}7.512%{transform:translate(371px,228px);opacity:0;fill:#0969da}9.662%{transform:translate(474px,198px);opacity:0;fill:#4f46e5}10.400%{transform:translate(474px,198px);opacity:1;fill:#4f46e5}14.738%{transform:translate(474px,78px);opacity:1;fill:#4f46e5}23.269%{transform:translate(710px,78px);opacity:1;fill:#4f46e5}24.006%{transform:translate(710px,78px);opacity:0;fill:#4f46e5}26.157%{transform:translate(712px,112px);opacity:0;fill:#8250df}26.894%{transform:translate(712px,112px);opacity:1;fill:#8250df}33.943%{transform:translate(517px,112px);opacity:1;fill:#8250df}36.979%{transform:translate(517px,196px);opacity:1;fill:#8250df}37.717%{transform:translate(517px,196px);opacity:0;fill:#8250df}39.868%{transform:translate(576px,214px);opacity:0;fill:#1a7f37}40.605%{transform:translate(576px,214px);opacity:1;fill:#1a7f37}45.449%{transform:translate(710px,214px);opacity:1;fill:#1a7f37}46.186%{transform:translate(710px,214px);opacity:0;fill:#1a7f37}48.337%{transform:translate(712px,244px);opacity:0;fill:#1a7f37}49.075%{transform:translate(712px,244px);opacity:1;fill:#1a7f37}53.918%{transform:translate(578px,244px);opacity:1;fill:#1a7f37}54.656%{transform:translate(578px,244px);opacity:0;fill:#1a7f37}56.807%{transform:translate(440px,258px);opacity:0;fill:#bf3989}57.544%{transform:translate(440px,258px);opacity:1;fill:#bf3989}62.822%{transform:translate(440px,404px);opacity:1;fill:#bf3989}63.559%{transform:translate(440px,404px);opacity:0;fill:#bf3989}65.710%{transform:translate(373px,436px);opacity:0;fill:#1b7c83}66.447%{transform:translate(373px,436px);opacity:1;fill:#1b7c83}75.665%{transform:translate(118px,436px);opacity:1;fill:#1b7c83}82.027%{transform:translate(118px,260px);opacity:1;fill:#1b7c83}82.765%{transform:translate(118px,260px);opacity:0;fill:#1b7c83}84.915%{transform:translate(517px,258px);opacity:0;fill:#bc4c00}85.653%{transform:translate(517px,258px);opacity:1;fill:#bc4c00}90.135%{transform:translate(517px,382px);opacity:1;fill:#bc4c00}97.112%{transform:translate(710px,382px);opacity:1;fill:#bc4c00}97.849%{transform:translate(710px,382px);opacity:0;fill:#bc4c00}}@media (prefers-reduced-motion: reduce){.token{animation:none}}</style>
+<defs><marker id="m0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#818b98"/></marker></defs>
+<rect width="980" height="490" rx="12" fill="#ffffff"/>
+<rect x="34" y="198" width="170" height="60" rx="10" fill="#0969da" fill-opacity="0.08" stroke="#0969da" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="119" y="225" font-size="16" fill="#1f2328" font-weight="700" text-anchor="middle">UI</text>
+<text x="119" y="245" font-size="13" fill="#59636e" text-anchor="middle">slots render slices</text>
+<rect x="373" y="198" width="203" height="60" rx="10" fill="#4f46e5" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="474.5" y="225" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">Runtime</text>
+<text x="474.5" y="245" font-size="13" fill="#ffffff" text-anchor="middle" fill-opacity="0.85">queue of facts</text>
+<rect x="712" y="48" width="237" height="80" rx="10" fill="#8250df" fill-opacity="0.08" stroke="#8250df" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="830.5" y="85" font-size="17" fill="#1f2328" font-weight="700" text-anchor="middle">Capability</text>
+<text x="830.5" y="105" font-size="13" fill="#59636e" text-anchor="middle">(Slice, Fact) → Decision</text>
+<rect x="712" y="198" width="237" height="60" rx="10" fill="#1a7f37" fill-opacity="0.08" stroke="#1a7f37" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="830.5" y="225" font-size="16" fill="#1f2328" font-weight="700" text-anchor="middle">Work</text>
+<text x="830.5" y="245" font-size="13" fill="#59636e" text-anchor="middle">request or subscription</text>
+<rect x="712" y="352" width="237" height="60" rx="10" fill="#bc4c00" fill-opacity="0.08" stroke="#bc4c00" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="830.5" y="379" font-size="16" fill="#1f2328" font-weight="700" text-anchor="middle">Host</text>
+<text x="830.5" y="399" font-size="13" fill="#59636e" text-anchor="middle">navigation, analytics</text>
+<rect x="373" y="406" width="203" height="60" rx="10" fill="#1b7c83" fill-opacity="0.08" stroke="#1b7c83" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="474.5" y="433" font-size="16" fill="#1f2328" font-weight="700" text-anchor="middle">Projection</text>
+<text x="474.5" y="453" font-size="13" fill="#59636e" text-anchor="middle">Slice → UI model</text>
+<path d="M204 228 L371 228" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M474 198 L474 78 L710 78" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M712 112 L517 112 L517 196" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#m0)"/>
+<path d="M576 214 L710 214" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M712 244 L578 244" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#m0)"/>
+<path d="M440 258 L440 404" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<path d="M373 436 L118 436 L118 260" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" stroke-dasharray="6 5" marker-end="url(#m0)"/>
+<path d="M517 258 L517 382 L710 382" fill="none" stroke="#818b98" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#m0)"/>
+<circle cx="240" cy="208" r="11" fill="#4f46e5"/>
+<text x="240" y="212.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+<text x="259" y="213" font-size="14" fill="#1f2328">Intent</text>
+<circle cx="580" cy="60" r="11" fill="#4f46e5"/>
+<text x="580" y="64.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+<text x="599" y="65" font-size="14" fill="#1f2328">fact</text>
+<circle cx="580" cy="130" r="11" fill="#4f46e5"/>
+<text x="580" y="134.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+<text x="599" y="135" font-size="14" fill="#1f2328">Decision</text>
+<circle cx="612" cy="198" r="11" fill="#4f46e5"/>
+<text x="612" y="202.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+<text x="631" y="203" font-size="14" fill="#1f2328">start</text>
+<text x="632" y="268" font-size="14" fill="#1f2328">Signal</text>
+<circle cx="338" cy="332" r="11" fill="#4f46e5"/>
+<text x="338" y="336.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+<text x="357" y="337" font-size="14" fill="#1f2328">new slice</text>
+<text x="232" y="456" font-size="14" fill="#1f2328">ui model</text>
+<circle cx="580" cy="364" r="11" fill="#4f46e5"/>
+<text x="580" y="368.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">6</text>
+<text x="599" y="369" font-size="14" fill="#1f2328">Effect</text>
+<circle class="token" r="7" cx="0" cy="0" stroke="#ffffff" stroke-width="2"/>
+</svg>

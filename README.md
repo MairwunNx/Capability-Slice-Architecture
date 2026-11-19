@@ -114,7 +114,7 @@ fun `a failed save rolls the like back`() = runTest {
 
 | Implementation | Platforms | Status |
 |---|---|---|
-| 📦 [Capsa](https://github.com/MairwunNx/Capsa) | Kotlin Multiplatform: Android, iOS, and the JVM, with Compose Multiplatform | 0.99 preview |
+| 📦 [Capsa](https://github.com/MairwunNx/Capsa) | Kotlin Multiplatform: Android, iOS, macOS, and the JVM, with Compose Multiplatform | 0.99 preview |
 | F# and Avalonia.FuncUI | .NET desktop | Planned |
 | Swift and SwiftUI | iOS and macOS | Planned |
 

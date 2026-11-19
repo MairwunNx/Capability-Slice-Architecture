@@ -110,6 +110,8 @@ fun `a failed save rolls the like back`() = runTest {
 }
 ```
 
+The rollback here is simple on purpose. The [honest optimistic like](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Work-as-data#the-honest-optimistic-like) survives two quick taps as well.
+
 ## Implementations
 
 | Implementation | Platforms | Status |

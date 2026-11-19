@@ -110,6 +110,8 @@ fun `a failed save rolls the like back`() = runTest {
 }
 ```
 
+Откат здесь намеренно упрощён. [Честный оптимистичный лайк](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Work-as-data#the-honest-optimistic-like) выдерживает и два быстрых нажатия.
+
 ## Реализации
 
 | Реализация | Платформы | Статус |

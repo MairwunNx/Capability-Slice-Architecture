@@ -305,9 +305,9 @@ def vocabulary(theme):
 
 
 RULES = [
-    ("Slice by scenario", "Never by layout block. A capability owns one user scenario, even when it spans several blocks on screen."),
-    ("The host assembles, it doesn’t think", "No product conditions in the UI entry point. It connects slices, intents, and effects."),
-    ("The runtime is the only bus", "A capability never imports or calls another one. It reacts to the signals the other one sends."),
+    ("Slice by scenario", "A capability owns a user scenario: a like, a search, a timer. Never a layout block."),
+    ("The host assembles, it doesn’t think", "The UI entry point collects slices, sends intents, and performs effects. It holds no product conditions."),
+    ("The runtime is the only bus", "A capability never imports another one or reads its slice. They talk through facts."),
     ("Side effects live at the edge", "The logic describes navigation, snackbars, and analytics as effects, and the host performs them."),
     ("Keep the decider small", "About 150 lines or 12 facts. Past that, split the capability."),
 ]

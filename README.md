@@ -117,10 +117,8 @@ The rollback here is simple on purpose. The [honest optimistic like](https://git
 | Implementation | Platforms | Status |
 |---|---|---|
 | 📦 [Capsa](https://github.com/MairwunNx/Capsa) | Kotlin Multiplatform: Android, iOS, macOS, and the JVM, with Compose Multiplatform | 0.99 preview |
-| F# and Avalonia.FuncUI | .NET desktop | Planned |
-| Swift and SwiftUI | iOS and macOS | Planned |
 
-Every implementation gives the same guarantees: one queue of facts, stale signals dropped, each effect delivered once. The [Implementations](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Implementations) page lists them all.
+Every implementation gives the same guarantees: one queue of facts, stale signals dropped, each effect delivered once. The [Implementations](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Implementations) page lists every guarantee.
 
 ## Inspired by
 

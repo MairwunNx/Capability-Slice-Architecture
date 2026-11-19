@@ -117,10 +117,8 @@ fun `a failed save rolls the like back`() = runTest {
 | Реализация | Платформы | Статус |
 |---|---|---|
 | 📦 [Capsa](https://github.com/MairwunNx/Capsa) | Kotlin Multiplatform: Android, iOS, macOS и JVM, с Compose Multiplatform | превью 0.99 |
-| F# и Avalonia.FuncUI | .NET, десктоп | в планах |
-| Swift и SwiftUI | iOS и macOS | в планах |
 
-Каждая реализация даёт одни и те же гарантии: одна очередь фактов, устаревшие сигналы отбрасываются, каждый эффект доставляется один раз. Полный список — на странице [Implementations](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Implementations).
+Каждая реализация даёт одни и те же гарантии: одна очередь фактов, устаревшие сигналы отбрасываются, каждый эффект доставляется один раз. Все гарантии — на странице [Implementations](https://github.com/MairwunNx/Capability-Slice-Architecture/wiki/Implementations).
 
 ## Откуда идея
 

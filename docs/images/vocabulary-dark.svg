@@ -51,8 +51,8 @@
 <text x="662" y="328" font-size="13" fill="#9198a1">A pure function from one or more slices</text>
 <text x="662" y="347" font-size="13" fill="#9198a1">to a UI model. Formatting lives here.</text>
 <rect x="20" y="401" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<rect x="20" y="411" width="4" height="91" rx="2" fill="#6e7681"/>
-<text x="38" y="431" font-size="16" fill="#e6edf3" font-weight="700">Ports</text>
+<rect x="20" y="411" width="4" height="91" rx="2" fill="#d4a72c"/>
+<text x="38" y="431" font-size="16" fill="#d4a72c" font-weight="700">Ports</text>
 <text x="38" y="455" font-size="13" fill="#9198a1">What a capability needs from the world,</text>
 <text x="38" y="474" font-size="13" fill="#9198a1">in its own terms. The wiring builds them</text>
 <text x="38" y="493" font-size="13" fill="#9198a1">from real code.</text>

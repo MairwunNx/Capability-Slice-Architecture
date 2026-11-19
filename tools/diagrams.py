@@ -40,6 +40,7 @@ ACCENTS = {
     "projection": dict(light="#1b7c83", dark="#39c5cf"),  # Projection
     "work": dict(light="#1a7f37", dark="#3fb950"),        # Work, Signal
     "effect": dict(light="#bc4c00", dark="#f0883e"),      # Effect, Host
+    "ports": dict(light="#8a6a00", dark="#d4a72c"),       # Ports
 }
 # The runtime box is filled solid. White text needs a deeper indigo than the dark accent.
 RUNTIME_SOLID = dict(light="#4f46e5", dark="#5b52e0")
@@ -51,6 +52,7 @@ ENTITY = {
     "Slice": "slice", "Projection": "projection",
     "Work": "work", "Signal": "work",
     "Effect": "effect", "Host": "effect",
+    "Ports": "ports",
 }
 
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif"
@@ -293,11 +295,10 @@ def vocabulary(theme):
     for row, rh in zip(rows, heights):
         for i, (term, text) in enumerate(row):
             x = x0 + i * (cw + gap)
-            # Ports have no accent of their own: the boundaries diagram draws them neutral too.
-            accent = d.accent(ENTITY[term]) if term in ENTITY else d.t["line"]
+            accent = d.accent(ENTITY[term])
             d.rect(x, y, cw, rh, fill=d.t["card"], stroke=d.t["border"], rx=8, sw=1)
             d.rect(x, y + 10, 4, rh - 20, fill=accent, rx=2)
-            d.text(x + pad, y + 30, term, 16, accent if term in ENTITY else d.t["fg"], bold=True)
+            d.text(x + pad, y + 30, term, 16, accent, bold=True)
             for j, line in enumerate(wrap(text, 13, cw - 2 * pad)):
                 d.text(x + pad, y + 54 + j * 19, line, 13, d.t["muted"])
         y += rh + gap
@@ -511,7 +512,7 @@ def boundaries(theme):
     band(34, "Ports and wiring", "the capability sees functions, the wiring plugs real code into them")
     y, bh = 64, 64
     d.box(20, y, 200, bh, "capability", "Capability", "knows only its ports")
-    d.box(280, y, 190, bh, None, "Ports", "plain functions")
+    d.box(280, y, 190, bh, "ports", "Ports", "plain functions")
     d.box(530, y, 190, bh, None, "Wiring", "builds the ports")
     d.box(780, y, 180, bh, None, "Real code", "repository, use case")
     my = y + bh / 2

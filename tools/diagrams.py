@@ -304,7 +304,7 @@ RULES = [
     ("Slice by scenario", "Never by layout block. A capability owns one user scenario, even when it spans several blocks on screen."),
     ("The host assembles, it doesn’t think", "No product conditions in the UI entry point. It connects slices, intents, and effects."),
     ("The runtime is the only bus", "A capability never imports or calls another one. It reacts to the signals the other one sends."),
-    ("Effects are the only impurity", "Navigation, snackbars, and analytics leave the logic as data, and the edge performs them."),
+    ("Side effects live at the edge", "The logic describes navigation, snackbars, and analytics as effects, and the host performs them."),
     ("Keep the decider small", "About 150 lines or 12 facts. Past that, split the capability."),
 ]
 

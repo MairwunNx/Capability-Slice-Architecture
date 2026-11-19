@@ -363,20 +363,21 @@ def phone(d, x, y):
     return regions
 
 
-SPLIT = [  # capability, what its slice holds
-    ("search", "query"),
-    ("timer", "seconds left"),
-    ("results", "items, loading"),
-    ("like", "liked items"),
-    ("form", "text, sending"),
+SPLIT = [  # capability, what the scenario does, what its slice holds
+    ("search", "typing, pause, request", "query"),
+    ("timer", "ticks while visible", "seconds left"),
+    ("results", "load, retry, next page", "items, loading"),
+    ("like", "tap, request, rollback", "liked items"),
+    ("form", "checks, sends, clears", "text, sending"),
 ]
 
 
 def screen_split(theme):
-    d = Drawing(theme, 1000, 520, "One screen before and after slicing it into capabilities",
+    d = Drawing(theme, 1000, 540, "One screen before and after slicing it into capabilities",
                 "Before: one class owns the whole screen, so the search, the timer, the list, the likes, the form, navigation, "
                 "and analytics share one piece of code. After: five capabilities, search, timer, results, like, and form, "
-                "each with its own slice. The like capability covers the like button of every card.")
+                "each a whole scenario with its own slice and works. The like capability is the scenario of liking: the tap on any card, "
+                "the request, and the rollback when the request fails.")
     t = d.t
     # Before
     d.text(20, 34, "Before", 16, bold=True)
@@ -398,7 +399,7 @@ def screen_split(theme):
     d.text(20, 498, "Every change touches code of another scenario.", 13, t["muted"])
     # After
     ox = 520
-    d.add(f'<path d="M500 24 L500 496" stroke="{t["border"]}" stroke-width="1"/>')
+    d.add(f'<path d="M500 24 L500 516" stroke="{t["border"]}" stroke-width="1"/>')
     d.text(ox, 34, "After", 16, bold=True)
     d.text(ox + tw("After", 16, True) + 8, 34, "a capability per scenario", 14, t["muted"])
     regions = phone(d, ox, 60)
@@ -406,18 +407,22 @@ def screen_split(theme):
     for name, rects in regions.items():
         for rx_, ry, rw, rh_ in rects:
             d.rect(rx_ - 3, ry - 3, rw + 6, rh_ + 6, stroke=cap, rx=8, sw=1.5, dash="4 3")
-    cx, cw, ch = ox + 262, 200, 46
-    centers = {"search": 100, "timer": 160, "results": 220, "like": 290, "form": 365}
-    for name, holds in SPLIT:
+    cx, cw, ch = ox + 262, 200, 58
+    centers = {"search": 92, "timer": 160, "results": 228, "like": 296, "form": 364}
+    for name, does, holds in SPLIT:
         cy = centers[name]
+        if tw(does, 12) > cw - 28:
+            raise SystemExit(f"screen-split: “{does}” is too long")
         d.rect(cx, cy - ch / 2, cw, ch, fill=cap, fill_opacity=t["tint"], stroke=cap, stroke_opacity="0.7", rx=8)
-        d.text(cx + 14, cy - 3, name, 14, cap, bold=True)
-        d.text(cx + 14, cy + 14, "slice: " + holds, 12, t["muted"])
+        d.text(cx + 14, cy - 9, name, 14, cap, bold=True)
+        d.text(cx + 14, cy + 8, does, 12)
+        d.text(cx + 14, cy + 23, "slice: " + holds, 12, t["muted"])
         for rx_, ry, rw, rh_ in regions[name]:
             sx = rx_ + rw + 3
             sy = ry + rh_ / 2 if name != "results" else ry + 18
             d.path([(sx, sy), (cx, cy)], color=cap, arrow=False, sw=1)
-    d.text(ox, 498, "Each scenario owns its slice. The like covers every card.", 13, t["muted"])
+    d.text(ox, 498, "A capability is a whole scenario: its facts, slice, and works.", 13, t["muted"])
+    d.text(ox, 518, "Like owns every like on the screen, not one button.", 13, t["muted"])
     return d
 
 

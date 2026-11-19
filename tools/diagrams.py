@@ -271,10 +271,13 @@ VOCABULARY = [
     ("Fact", "An intent or a signal, the only thing that enters the runtime."),
     ("Capability", "A pure function (slice, fact) → decision for one user scenario."),
     ("Slice", "The state of one capability, the memory of the screen."),
+    ("Decision", "What a capability returns for a fact: the new slice, works to start or cancel, effects, and signals."),
     ("Work", "Async work described as data, with a key and a cancellation policy. The runtime runs it."),
     ("Effect", "A request to the outside world as data: navigate, show a snackbar, share."),
-    ("Slot", "Renders exactly one slice and sends intents."),
+    ("Projection", "A pure function from one or more slices to a UI model. Formatting lives here."),
+    ("Ports", "What a capability needs from the world, in its own terms. The wiring builds them from real code."),
     ("Host", "Assembles slices, intents, and effects. It holds no product logic."),
+    ("Slot", "Optional. Renders one UI model and sends intents."),
 ]
 
 
@@ -285,15 +288,16 @@ def vocabulary(theme):
     w = x0 * 2 + cols * cw + (cols - 1) * gap
     h = y0 * 2 + sum(heights) + gap * (len(rows) - 1)
     d = Drawing(theme, w, h, "The vocabulary of Capability Slice Architecture",
-                "Nine terms: " + " ".join(f"{term}: {text}" for term, text in VOCABULARY))
+                f"{len(VOCABULARY)} terms: " + " ".join(f"{term}: {text}" for term, text in VOCABULARY))
     y = y0
     for row, rh in zip(rows, heights):
         for i, (term, text) in enumerate(row):
             x = x0 + i * (cw + gap)
-            accent = d.accent(ENTITY[term])
+            # Ports have no accent of their own: the boundaries diagram draws them neutral too.
+            accent = d.accent(ENTITY[term]) if term in ENTITY else d.t["line"]
             d.rect(x, y, cw, rh, fill=d.t["card"], stroke=d.t["border"], rx=8, sw=1)
             d.rect(x, y + 10, 4, rh - 20, fill=accent, rx=2)
-            d.text(x + pad, y + 30, term, 16, accent, bold=True)
+            d.text(x + pad, y + 30, term, 16, accent if term in ENTITY else d.t["fg"], bold=True)
             for j, line in enumerate(wrap(text, 13, cw - 2 * pad)):
                 d.text(x + pad, y + 54 + j * 19, line, 13, d.t["muted"])
         y += rh + gap

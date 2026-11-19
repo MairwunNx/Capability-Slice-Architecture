@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="386" viewBox="0 0 960 386" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="532" viewBox="0 0 960 532" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" role="img">
 <title>The vocabulary of Capability Slice Architecture</title>
-<desc>Nine terms: Intent: The user did something. Only the UI sends it. Signal: The world did something: a work finished, another screen returned a result, the lifecycle moved. Fact: An intent or a signal, the only thing that enters the runtime. Capability: A pure function (slice, fact) → decision for one user scenario. Slice: The state of one capability, the memory of the screen. Work: Async work described as data, with a key and a cancellation policy. The runtime runs it. Effect: A request to the outside world as data: navigate, show a snackbar, share. Slot: Renders exactly one slice and sends intents. Host: Assembles slices, intents, and effects. It holds no product logic.</desc>
-<rect width="960" height="386" rx="12" fill="#0d1117"/>
+<desc>12 terms: Intent: The user did something. Only the UI sends it. Signal: The world did something: a work finished, another screen returned a result, the lifecycle moved. Fact: An intent or a signal, the only thing that enters the runtime. Capability: A pure function (slice, fact) → decision for one user scenario. Slice: The state of one capability, the memory of the screen. Decision: What a capability returns for a fact: the new slice, works to start or cancel, effects, and signals. Work: Async work described as data, with a key and a cancellation policy. The runtime runs it. Effect: A request to the outside world as data: navigate, show a snackbar, share. Projection: A pure function from one or more slices to a UI model. Formatting lives here. Ports: What a capability needs from the world, in its own terms. The wiring builds them from real code. Host: Assembles slices, intents, and effects. It holds no product logic. Slot: Optional. Renders one UI model and sends intents.</desc>
+<rect width="960" height="532" rx="12" fill="#0d1117"/>
 <rect x="20" y="20" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
 <rect x="20" y="30" width="4" height="91" rx="2" fill="#4493f8"/>
 <text x="38" y="50" font-size="16" fill="#4493f8" font-weight="700">Intent</text>
@@ -29,24 +29,41 @@
 <text x="350" y="201" font-size="13" fill="#9198a1">The state of one capability, the memory</text>
 <text x="350" y="220" font-size="13" fill="#9198a1">of the screen.</text>
 <rect x="644" y="147" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<rect x="644" y="157" width="4" height="91" rx="2" fill="#3fb950"/>
-<text x="662" y="177" font-size="16" fill="#3fb950" font-weight="700">Work</text>
-<text x="662" y="201" font-size="13" fill="#9198a1">Async work described as data, with a</text>
-<text x="662" y="220" font-size="13" fill="#9198a1">key and a cancellation policy. The</text>
-<text x="662" y="239" font-size="13" fill="#9198a1">runtime runs it.</text>
-<rect x="20" y="274" width="296" height="92" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<rect x="20" y="284" width="4" height="72" rx="2" fill="#f0883e"/>
-<text x="38" y="304" font-size="16" fill="#f0883e" font-weight="700">Effect</text>
-<text x="38" y="328" font-size="13" fill="#9198a1">A request to the outside world as data:</text>
-<text x="38" y="347" font-size="13" fill="#9198a1">navigate, show a snackbar, share.</text>
-<rect x="332" y="274" width="296" height="92" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<rect x="332" y="284" width="4" height="72" rx="2" fill="#4493f8"/>
-<text x="350" y="304" font-size="16" fill="#4493f8" font-weight="700">Slot</text>
-<text x="350" y="328" font-size="13" fill="#9198a1">Renders exactly one slice and sends</text>
-<text x="350" y="347" font-size="13" fill="#9198a1">intents.</text>
-<rect x="644" y="274" width="296" height="92" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-<rect x="644" y="284" width="4" height="72" rx="2" fill="#f0883e"/>
-<text x="662" y="304" font-size="16" fill="#f0883e" font-weight="700">Host</text>
-<text x="662" y="328" font-size="13" fill="#9198a1">Assembles slices, intents, and effects. It</text>
-<text x="662" y="347" font-size="13" fill="#9198a1">holds no product logic.</text>
+<rect x="644" y="157" width="4" height="91" rx="2" fill="#ab7df8"/>
+<text x="662" y="177" font-size="16" fill="#ab7df8" font-weight="700">Decision</text>
+<text x="662" y="201" font-size="13" fill="#9198a1">What a capability returns for a fact: the</text>
+<text x="662" y="220" font-size="13" fill="#9198a1">new slice, works to start or cancel,</text>
+<text x="662" y="239" font-size="13" fill="#9198a1">effects, and signals.</text>
+<rect x="20" y="274" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="284" width="4" height="91" rx="2" fill="#3fb950"/>
+<text x="38" y="304" font-size="16" fill="#3fb950" font-weight="700">Work</text>
+<text x="38" y="328" font-size="13" fill="#9198a1">Async work described as data, with a</text>
+<text x="38" y="347" font-size="13" fill="#9198a1">key and a cancellation policy. The</text>
+<text x="38" y="366" font-size="13" fill="#9198a1">runtime runs it.</text>
+<rect x="332" y="274" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="332" y="284" width="4" height="91" rx="2" fill="#f0883e"/>
+<text x="350" y="304" font-size="16" fill="#f0883e" font-weight="700">Effect</text>
+<text x="350" y="328" font-size="13" fill="#9198a1">A request to the outside world as data:</text>
+<text x="350" y="347" font-size="13" fill="#9198a1">navigate, show a snackbar, share.</text>
+<rect x="644" y="274" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="644" y="284" width="4" height="91" rx="2" fill="#39c5cf"/>
+<text x="662" y="304" font-size="16" fill="#39c5cf" font-weight="700">Projection</text>
+<text x="662" y="328" font-size="13" fill="#9198a1">A pure function from one or more slices</text>
+<text x="662" y="347" font-size="13" fill="#9198a1">to a UI model. Formatting lives here.</text>
+<rect x="20" y="401" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="411" width="4" height="91" rx="2" fill="#6e7681"/>
+<text x="38" y="431" font-size="16" fill="#e6edf3" font-weight="700">Ports</text>
+<text x="38" y="455" font-size="13" fill="#9198a1">What a capability needs from the world,</text>
+<text x="38" y="474" font-size="13" fill="#9198a1">in its own terms. The wiring builds them</text>
+<text x="38" y="493" font-size="13" fill="#9198a1">from real code.</text>
+<rect x="332" y="401" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="332" y="411" width="4" height="91" rx="2" fill="#f0883e"/>
+<text x="350" y="431" font-size="16" fill="#f0883e" font-weight="700">Host</text>
+<text x="350" y="455" font-size="13" fill="#9198a1">Assembles slices, intents, and effects. It</text>
+<text x="350" y="474" font-size="13" fill="#9198a1">holds no product logic.</text>
+<rect x="644" y="401" width="296" height="111" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+<rect x="644" y="411" width="4" height="91" rx="2" fill="#4493f8"/>
+<text x="662" y="431" font-size="16" fill="#4493f8" font-weight="700">Slot</text>
+<text x="662" y="455" font-size="13" fill="#9198a1">Optional. Renders one UI model and</text>
+<text x="662" y="474" font-size="13" fill="#9198a1">sends intents.</text>
 </svg>

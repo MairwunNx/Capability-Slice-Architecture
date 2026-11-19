@@ -75,6 +75,8 @@ fun interface LikeApi {
 ```kotlin
 private val save = WorkKey("save")
 
+// Only a host or a test harness provides this scope.
+context(_: CapabilityScope)
 fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
     on<LikeClicked> { state, _ ->
         val liked = !state.liked
@@ -97,7 +99,7 @@ The capability never calls the network itself. It returns a work, and the runtim
 ```kotlin
 @Test
 fun `a failed save rolls the like back`() = runTest {
-    val likes = likes(api = { error("offline") })
+    val likes = inCapabilityScope { likes(api = { error("offline") }) }
     val harness = capsaHarness(likes)
 
     harness.append(LikeClicked)

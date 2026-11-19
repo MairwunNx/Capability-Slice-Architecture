@@ -13,6 +13,7 @@ import html
 import math
 import os
 import pathlib
+import re
 import sys
 
 from PIL import ImageFont
@@ -90,6 +91,11 @@ def wrap(text, size, limit, bold=False):
 
 # ---------- Drawing ----------
 
+def keep_spaces(s):
+    """SVG collapses a run of spaces and drops leading ones. No-break spaces keep them, so an indent in mono text survives."""
+    return re.sub(r"^ +| {2,}", lambda m: "\xa0" * len(m.group()), s)
+
+
 class Drawing:
     def __init__(self, theme, w, h, title, desc):
         self.t, self.theme, self.w, self.h, self.title, self.desc = THEMES[theme], theme, w, h, title, desc
@@ -111,7 +117,7 @@ class Drawing:
             attrs += f' font-family="{MONO}"'
         if opacity:
             attrs += f' fill-opacity="{opacity}"'
-        self.add(f"<text {attrs}>{html.escape(s, quote=False)}</text>")
+        self.add(f"<text {attrs}>{html.escape(keep_spaces(s), quote=False)}</text>")
 
     def rect(self, x, y, w, h, fill="none", stroke=None, rx=10, sw=1.5, dash=None, fill_opacity=None, stroke_opacity=None):
         attrs = f'x="{x:g}" y="{y:g}" width="{w:g}" height="{h:g}" rx="{rx}" fill="{fill}"'

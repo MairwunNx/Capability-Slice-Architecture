@@ -306,28 +306,33 @@ def vocabulary(theme):
 
 
 RULES = [
-    ("Slice by scenario", "A capability owns a user scenario: a like, a search, a timer. Never a layout block."),
-    ("The host assembles, it doesn’t think", "The UI entry point collects slices, sends intents, and performs effects. It holds no product conditions."),
-    ("The runtime is the only bus", "A capability never imports another one or reads its slice. They talk through facts."),
-    ("Side effects live at the edge", "The logic describes navigation, snackbars, and analytics as effects, and the host performs them."),
-    ("Keep the decider small", "About 150 lines or 12 facts. Past that, split the capability."),
+    ("Slice by scenario", ["A capability owns a user scenario: a like, a search, a timer. Never a layout block."]),
+    ("The host assembles, it doesn’t think", ["The UI entry point collects slices, sends intents, and performs effects. It holds no product conditions."]),
+    ("The runtime is the only bus", ["A capability never imports another one or reads its slice. They talk through facts."]),
+    ("Side effects live at the edge", ["The logic describes navigation, snackbars, and analytics as effects, and the host performs them.",
+                                       "The router and the snackbar themselves never get into the logic."]),
+    ("Keep the decider small", ["About 150 lines or 12 facts. Past that, split the capability."]),
 ]
 
 
 def rules(theme):
-    w, x0, y0, rh, gap = 860, 20, 20, 64, 12
-    h = y0 * 2 + len(RULES) * rh + (len(RULES) - 1) * gap
+    """Each line of a rule's text is one sentence. A card grows by a line for each sentence past the first."""
+    w, x0, y0, gap, line = 860, 20, 20, 12, 19
+    heights = [64 + line * (len(lines) - 1) for _, lines in RULES]
+    h = y0 * 2 + sum(heights) + (len(RULES) - 1) * gap
     d = Drawing(theme, w, h, "The five rules of Capability Slice Architecture",
-                " ".join(f"{i}. {title}: {text}" for i, (title, text) in enumerate(RULES, 1)))
-    for i, (title, text) in enumerate(RULES):
-        y = y0 + i * (rh + gap)
+                " ".join(f"{i}. {title}: {' '.join(lines)}" for i, (title, lines) in enumerate(RULES, 1)))
+    y = y0
+    for i, ((title, lines), rh) in enumerate(zip(RULES, heights)):
         d.rect(x0, y, w - 2 * x0, rh, fill=d.t["card"], stroke=d.t["border"], rx=8, sw=1)
         d.add(f'<circle cx="{x0 + 34}" cy="{y + rh / 2}" r="16" fill="{RUNTIME_SOLID[theme]}"/>')
         d.text(x0 + 34, y + rh / 2 + 6, str(i + 1), 16, d.t["on_solid"], bold=True, anchor="middle")
         d.text(x0 + 66, y + 27, title, 16, bold=True)
-        if tw(text, 13) > w - 2 * x0 - 86:
-            raise SystemExit(f"rules: “{text}” is too long for one line")
-        d.text(x0 + 66, y + 48, text, 13, d.t["muted"])
+        for j, text in enumerate(lines):
+            if tw(text, 13) > w - 2 * x0 - 86:
+                raise SystemExit(f"rules: “{text}” is too long for one line")
+            d.text(x0 + 66, y + 48 + j * line, text, 13, d.t["muted"])
+        y += rh + gap
     return d
 
 

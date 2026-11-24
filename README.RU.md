@@ -56,9 +56,13 @@ data class LikeSlice(val liked: Boolean = false, val likes: Int = 0)
 `LikeFacts.kt` — что приходит в capability и что уходит из неё:
 
 ```kotlin
-data object LikeClicked : Intent
-data class LikeSaved(val likes: Int) : Signal
-data object LikeFailed : Signal
+sealed interface LikeIntent : Intent
+data object LikeClicked : LikeIntent
+
+sealed interface LikeSignal : Signal
+data class LikeSaved(val likes: Int) : LikeSignal
+data object LikeFailed : LikeSignal
+
 data object ShowLikeError : Effect
 ```
 
@@ -73,21 +77,23 @@ fun interface LikeApi {
 `Likes.kt` — сама capability:
 
 ```kotlin
-private val save = WorkKey("save")
+private val SAVE = WorkKey("save")
 
 // Only a host or a test harness provides this scope.
 context(_: CapabilityScope)
-fun likes(api: LikeApi) = capability("likes", LikeSlice()) {
-    on<LikeClicked> { state, _ ->
-        val liked = !state.liked
-        // The heart turns red at once. The request is only described here, the runtime runs it.
-        state.copy(liked = liked, likes = state.likes + if (liked) 1 else -1).commit(
-            work(save, onError = { LikeFailed }) { LikeSaved(api.setLiked(liked)) },
-        )
+fun likes(api: LikeApi) = capability<LikeSlice, LikeIntent, LikeSignal>(name = "likes", initial = LikeSlice()) {
+    val works = object {
+        fun save(liked: Boolean) = work(key = SAVE, onError = { LikeFailed }) { LikeSaved(api.setLiked(liked)) }
     }
-    on<LikeSaved> { state, fact -> state.copy(likes = fact.likes).commit() }
-    on<LikeFailed> { state, _ ->
-        state.copy(liked = !state.liked, likes = state.likes + if (state.liked) -1 else 1).commit(ShowLikeError)
+
+    onIntent<LikeClicked> { state, _ ->
+        val liked = !state.liked
+        // The heart turns red at once. The request is only described here: the runtime runs it.
+        Decision(state = state.copy(liked = liked, likes = state.likes + if (liked) 1 else -1), work = works.save(liked))
+    }
+    onSignal<LikeSaved> { state, saved -> Decision(state = state.copy(likes = saved.likes)) }
+    onSignal<LikeFailed> { state, _ ->
+        Decision(state = state.copy(liked = !state.liked, likes = state.likes + if (state.liked) -1 else 1), effect = ShowLikeError)
     }
 }
 ```

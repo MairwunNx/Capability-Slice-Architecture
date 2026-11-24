@@ -4,7 +4,7 @@
 
 ## CSA and Capsa
 
-Capsa (https://github.com/MairwunNx/Capsa) implements CSA on Kotlin Multiplatform for Android, iOS, and the JVM. Capsa follows every rule of CSA and holds more: the API, the hosts, the test harness, the tools. When the two disagree, CSA wins and Capsa gets fixed. Facts about Capsa’s API belong in Capsa, and this repository links to them.
+Capsa (https://github.com/MairwunNx/Capsa) implements CSA on Kotlin Multiplatform for Android, iOS, macOS, and the JVM. Capsa follows every rule of CSA and holds more: the API, the hosts, the test harness, the tools. When the two disagree, CSA wins and Capsa gets fixed. Facts about Capsa’s API belong in Capsa, and this repository links to them.
 
 CSA draws on Feature-Action Architecture (https://github.com/MairwunNx/Feature-Action-Architecture), which slices a backend by domain. CSA brings the same instinct to client apps with declarative UI.
 

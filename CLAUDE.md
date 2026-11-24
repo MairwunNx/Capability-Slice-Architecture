@@ -8,6 +8,16 @@ Capsa (https://github.com/MairwunNx/Capsa) implements CSA on Kotlin Multiplatfor
 
 CSA draws on Feature-Action Architecture (https://github.com/MairwunNx/Feature-Action-Architecture), which slices a backend by domain. CSA brings the same instinct to client apps with declarative UI.
 
+## How the repository is laid out
+
+| Path | What lives there |
+|---|---|
+| `README.md`, `README.RU.md` | The shop window in English and its Russian copy |
+| `docs/images/` | The diagrams of the README and the wiki, each as `*-light.svg` and `*-dark.svg` |
+| `tools/diagrams.py` | Draws the diagrams: `python3 tools/diagrams.py` for all of them, or with names for only those. It needs Pillow |
+
+The principles live in the wiki, a git repository of its own. There is no build, no CI, and no release: the specification is what `master` holds, without versions or tags.
+
 ## Vocabulary
 
 | Term | Meaning |
